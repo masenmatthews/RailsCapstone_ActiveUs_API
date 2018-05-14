@@ -1,5 +1,14 @@
-organization_list = [
+class Seed
 
+def self.begin
+  seed = Seed.new
+  seed.generate_organizations
+end
+
+def generate_organizations
+Organization.destroy_all
+
+organization_list = [
   [ "Homelessness", [
     [ "Transition Projects", [
       "Transition Projects delivers life-saving and life-changing assistance to some of Portland’s most vulnerable residents. Whether by helping a homeless veteran and her family find housing, sheltering hundreds of people each night with nowhere else to turn, or opening new pathways to employment, Transition Projects represents an invaluable part of Portland’s social fabric.", "665 NW Hoyt St, Portland, OR 97209", "(503) 280-4700", "https://www.tprojects.org/" ]],
@@ -22,25 +31,28 @@ organization_list = [
     [ "Vibe of Portland", [
       "Vibe's Mission : Empowering Portland's Youth through Art & Music ; Inspiring the next generation of creative leaders. Vibe believes everyone should have access to quality arts education. Through our school and studio programming, creatives have a chance to have processed based instruction, local mentors that are practicing artists and musicians themselves, and learn in a safe, inviting and positive environment.", "5633 SE Division St, Portland, OR 97206", "https://vibepdx.org/" ]],
     [ "Ethos Music Center", [
-      "Founded in 1998, Ethos provides group classes, private lessons, summer camps and music outreach programs to over 7,000 youth across Oregon. Ethos has been named one of the top 50 after school arts programs by the President's Commission for the Arts and Humanities on 8 separate occasions.", "2 N Killingsworth St, Portland, OR 97217", "(503) 283-8467", "http://ethos.org/" ]]]],
-
+      "Founded in 1998, Ethos provides group classes, private lessons, summer camps and music outreach programs to over 7,000 youth across Oregon. Ethos has been named one of the top 50 after school arts programs by the President's Commission for the Arts and Humanities on 8 separate occasions.", "2 N Killingsworth St, Portland, OR 97217", "(503) 283-8467", "http://ethos.org/" ]]]]
     ]  # Closes organizations list
 
-organization_list.each do |category, org_name_list|
-  seed_org = Organization.new
-  seed_org.category = category
-  seed_org.save
+        organization_list.each do |category, name_list|
+          seed_org = Organization.new
+          seed_org.category = category
 
-  org_name_list.each do |name, org_info_list|
-    seed_org.name = name
-    seed_org.save
+        name_list.each do |name, info_list|
+          seed_org.name = name
+          seed_org.save
 
-    org_info_list.each do |description, address, phone, website|
-      seed_org.description = description
-      seed_org.address = address
-      seed_org.phone = phone
-      seed_org.website = website
-      seed_org.save
+        info_list.each do |description, address, phone, website|
+          seed_org.description = description
+          seed_org.address = address
+          seed_org.phone = phone
+          seed_org.website = website
+          seed_org.save
+        end
+      end
     end
   end
 end
+
+p "Created #{Organization.count} organizations"
+Seed.begin
