@@ -1,5 +1,5 @@
 organization_list = [
-  
+
   [ "Homelessness", [
     [ "Transition Projects", [
       "Transition Projects delivers life-saving and life-changing assistance to some of Portland’s most vulnerable residents. Whether by helping a homeless veteran and her family find housing, sheltering hundreds of people each night with nowhere else to turn, or opening new pathways to employment, Transition Projects represents an invaluable part of Portland’s social fabric.", "665 NW Hoyt St, Portland, OR 97209", "(503) 280-4700", "https://www.tprojects.org/" ]],
@@ -26,12 +26,21 @@ organization_list = [
 
     ]  # Closes organizations list
 
-organization_list.each do |name, category, description, address, phone, website|
-  Organization.create(
-    name: name,
-    category: category,
-    description: description,
-    address: address,
-    phone: phone,
-    website: website)
+organization_list.each do |category, org_name_list|
+  seed_org = Organization.new
+  seed_org.category = category
+  seed_org.save
+
+  org_name_list.each do |name, org_info_list|
+    seed_org.name = name
+    seed_org.save
+
+    org_info_list.each do |description, address, phone, website|
+      seed_org.description = description
+      seed_org.address = address
+      seed_org.phone = phone
+      seed_org.website = website
+      seed_org.save
+    end
+  end
 end
