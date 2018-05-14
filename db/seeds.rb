@@ -40,8 +40,7 @@ organization_list = [
 
         name_list.each do |name, info_list|
           seed_org.name = name
-          seed_org.save
-
+\
         info_list.each do |description, address, phone, website|
           seed_org.description = description
           seed_org.address = address
