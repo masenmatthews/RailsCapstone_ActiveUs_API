@@ -9,9 +9,9 @@ def generate_organizations
 Organization.destroy_all
 
 organization_list = [
-  [ "Homelessness", [
-    [ "Transition Projects", [
-      "Transition Projects delivers life-saving and life-changing assistance to some of Portland’s most vulnerable residents. Whether by helping a homeless veteran and her family find housing, sheltering hundreds of people each night with nowhere else to turn, or opening new pathways to employment, Transition Projects represents an invaluable part of Portland’s social fabric.", "665 NW Hoyt St, Portland, OR 97209", "(503) 280-4700", "https://www.tprojects.org/" ]],
+  [ "Homelessness", [ # Top level - category
+    [ "Transition Projects", [ # Second level - name
+      "Transition Projects delivers life-saving and life-changing assistance to some of Portland’s most vulnerable residents. Whether by helping a homeless veteran and her family find housing, sheltering hundreds of people each night with nowhere else to turn, or opening new pathways to employment, Transition Projects represents an invaluable part of Portland’s social fabric.", "665 NW Hoyt St, Portland, OR 97209", "(503) 280-4700",  "https://www.tprojects.org/" ]],  # Third level - information
     [ "Portland Homeless Family Solutions", [
       "Giving hope to homeless families with children. Our mission is to empower homeless families with children to get back into housing - and stay there.", "1221 SW Yamhill St #210, Portland, OR 97205", "(503) 915-8306", "http://pdxhfs.org/" ]],
     [ "Portland Rescue Mission", [
@@ -40,7 +40,7 @@ organization_list = [
 
         name_list.each do |name, info_list|
           seed_org.name = name
-\
+
         info_list.each do |description, address, phone, website|
           seed_org.description = description
           seed_org.address = address
