@@ -2,7 +2,12 @@ class OrganizationsController < ApplicationController
   # TOKEN = "secret"
 
   def index
+    name = params[:name]
     category = params[:category]
+    address = params[:address]
+    phone = params[:phone]
+    website = params[:website]
+    description = params[:description]
     @organization = Organization.search(category)
     json_response(@organization)
   end
