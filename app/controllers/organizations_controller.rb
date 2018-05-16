@@ -1,7 +1,6 @@
 class OrganizationsController < ApplicationController
-  TOKEN = "secret"
+  # TOKEN = "secret"
 
-  before_action :authenticate, except: [ :index ]
   def index
     category = params[:category]
     @organization = Organization.search(category)
@@ -41,10 +40,10 @@ class OrganizationsController < ApplicationController
     params.permit(:category)
   end
 
-  def authenticate
-    authenticate_or_request_with_http_token do |token, options|
-      ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
-    end
-  end
+  # def authenticate
+  #   authenticate_or_request_with_http_token do |token, options|
+  #     ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+  #   end
+  # end
 
 end
