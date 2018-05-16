@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-  resources :organizations do
-end
+  resources :organizations
 end
