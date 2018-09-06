@@ -1,30 +1,34 @@
 # Active.Us API
 
-#### _The API portion to the Rails Active.Us application._, {May 16, 2018}_
+#### _An API that is designed to help individuals connect with nonprofits in the Portland metro area._, {September 6, 2018}_
 
 ### By Masen Matthews
 
-## Description
-  Active.Us is a site that helps people connect with nonprofits in the Portland metro area. This is the API component, which includes nonprofit information like names, descriptions, and contact information. These are organized by category. This API is designed to work with the front-end version of the application, which can be found at https://github.com/masenmatthews/RailsCapstone_ActiveUs_API
-
-## Setup/Installation Requirements
+## Description / Motivation
+  Active.us is an API that features information about local nonprofits in Portland. I started this project during my last week at Epicodus (May 2018) and have been pretty hands-off with it since then. Now that I've finished the internship portion of Epicodus, I'm looking forward to jumping back in. 
+  
+  This was originally being developed with a Rails frontend, which has since been scrapped. I may build a front end portion in the future using React. Regardless, I feel that an API like this one could be utilized by a lot of developers who are interested in using tech as a means of creating positive social changes. 
+  
+  As a person with a background in sociology, I feel inclined to use my technical skill in a way that benefits the world around me. This is essentially my way of giving back and I hope that it can grow into something that gets utilized by a wide variety of users.
+  
+## Current status / future expansion
+  I'm in the early stages of getting back to working on this API. Next steps will include adding token authentication and building out the actual database of nonprofits. Stay tuned!
+  
+## Setup/Installation requirements
   This project can be installed and viewed by following these steps:
     1. Clone GitHub repository to desktop or desired directory
     2. Open the terminal and navigate to the project directory
     3. Run $ bundle or $ bundle install in the terminal
     4. Run $ rails db:create and $ rails db:migrate to establish database functionality
     5. Run $ rails s -p 3001 to launch the API at localhost:3001
-    6. Navigate to localhost:3001 in Google Chrome or desired browser. API calls can be tested in Postman or in a different API testing program.
-    7. Download the front-end component from https://github.com/masenmatthews/RailsCapstone_ActiveUs_API and follow the setup instructions included with it to get full application functionality. 
+    6. Navigate to localhost:3001 in Google Chrome or desired browser. API calls can be tested in Postman or in a different API testing application.
 
-## Future expansion
-  This project will be expanded to include more categories and more nonprofits so that the front-end version can be built out further. Authentication will also be added in the future.
-
-## Technologies Used
+## Technologies used
   This project utilizes the following technologies:
     -Ruby On Rails
+    -Token authentication (in progress)
 
-## Known Bugs and Issues
+## Known bugs and issues
   N/A
 
 ## Support and contact details
